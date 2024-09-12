@@ -1,0 +1,51 @@
+.main-content {
+  width: 100%;
+}
+
+.weather-section {
+  padding: 32px;
+  display: flex;
+  gap: calc(2 * var(--min-step));
+  justify-content: center;
+  align-items: center;
+}
+
+.city-info {
+  padding: var(--min-step);
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: calc(8 * var(--min-step));
+
+  text-align: center;
+}
+
+.city-info__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--min-step);
+}
+
+.city-info__city {
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.33333;
+}
+
+.city-info__text {
+  text-transform: capitalize;
+}
+
+.city-info__temperature {
+  font-weight: 700;
+  font-size: 112px;
+  line-height: 1;
+}
+
+.city-info__weather {
+  display: flex;
+  justify-content: center;
+  gap: var(--min-step);
+}

@@ -1,0 +1,77 @@
+*:hover,
+*:focus {
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+time {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  line-height: 0;
+  cursor: pointer;
+}
+a:visited {
+  color: inherit;
+}
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  font-variant-numeric: lining-nums;
+}
+
+input {
+  line-height: inherit;
+  font-variant-numeric: lining-nums;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+.icon {
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+  opacity: 0;
+}

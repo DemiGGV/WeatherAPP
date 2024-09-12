@@ -1,0 +1,128 @@
+.more-info {
+  display: grid;
+  gap: calc(2 * var(--min-step));
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  padding: 16px;
+  width: 158px;
+  height: 196px;
+
+  border-radius: var(--radius);
+
+  background: var(--input-background-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.upper-card,
+.card__information {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+}
+
+.card__title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--text-black-color);
+}
+
+.card__indicator {
+  font-size: 32px;
+  line-height: 1;
+  color: var(--text-black-color);
+}
+.card__value-span {
+  display: inline-block;
+}
+.card__bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.card__progress-bar {
+  mask: radial-gradient(
+    circle at calc((var(--percent) * 0.94) + 4px),
+    black 0px,
+    black 4px,
+    transparent 4px,
+    transparent 6px,
+    black 6px,
+    black 6px
+  );
+  position: relative;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background-color: var(--progress-background-color);
+  overflow: hidden;
+}
+.card__progress-bar > .card__progress-bar--inner {
+  left: calc(var(--percent) * 0.94);
+}
+
+/*------ Progress bars values ------*/
+.card__progress-bar.pressure {
+  --percent: var(--percent-pressure);
+}
+.card__progress-bar.humidity {
+  --percent: var(--percent-humidity);
+}
+.card__progress-bar.visibility {
+  --percent: var(--percent-visibility);
+}
+/*------ Progress bars values off ------*/
+
+.pressure {
+  background: linear-gradient(
+    to right,
+    var(--progress-background-full-color) 0%,
+    var(--progress-background-center-color) 15%,
+    var(--progress-background-middle-color) 50%,
+    var(--progress-background-center-color) 85%,
+    var(--progress-background-full-color) 100%
+  );
+}
+
+.card__progress-bar--inner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--text-light-color);
+  transition: left 250ms cubic-bezier(var(--cubic));
+}
+
+.card__bottom--status {
+  width: 100%;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: var(--indicator-color);
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.card__bottom--status-percents {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card__bottom--status.percents {
+  width: auto;
+}

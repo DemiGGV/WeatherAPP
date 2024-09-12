@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  padding: 32px 80px;
+  min-height: 100vh;
+
+  display: grid;
+  place-items: center;
+
+  background-image: url("../images/desktop/background-main@1x.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: var(--text-light-color);
+
+  font-family: "Raleway", "sans-serif";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  font-variant-numeric: lining-nums;
+}
+
+@media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  body {
+    background-image: url("../images/desktop/background-main@2x.jpg");
+  }
+}
+
+@media (min-device-pixel-ratio: 3),
+  (-webkit-min-device-pixel-ratio: 3),
+  (min-resolution: 288dpi),
+  (min-resolution: 3dppx) {
+  body {
+    background-image: url("../images/desktop/background-main@3x.jpg");
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+
+  border-radius: var(--radius);
+  backdrop-filter: blur(50px);
+  background-color: var(--main-background-color);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    min-width: 1280px;
+  }
+}
