@@ -1,26 +1,38 @@
 .header {
-  padding: 32px;
+  padding: var(--mobile-padding);
   width: 100%;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .header {
+    padding: var(--tablet-padding);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    padding: var(--desktop-padding);
+  }
 }
 
 .logo {
   display: inline-block;
   padding: 0;
-  margin-right: auto;
 }
 
 .search-form {
-  width: 506px;
-  padding: 12px 16px;
+  width: 100%;
+  max-width: 265px;
+
+  padding: 8px 12px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: calc(2 * var(--min-step));
+  gap: 12px;
 
   border-radius: var(--radius);
 
@@ -30,6 +42,32 @@
     background-color 250ms cubic-bezier(var(--cubic)),
     box-shadow 250ms cubic-bezier(var(--cubic)),
     opacity 250ms cubic-bezier(var(--cubic));
+}
+
+@media screen and (min-width: 640px) {
+  .search-form {
+    max-width: 410px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .search-form {
+    padding: 12px 16px;
+    gap: 16px;
+    max-width: 485px;
+  }
+}
+
+@media screen and (min-width: 886px) {
+  .search-form {
+    max-width: 600px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .search-form {
+    max-width: 505px;
+  }
 }
 
 .search-form:hover,
@@ -53,10 +91,11 @@
 }
 
 .search-form__button {
-  padding: 4px;
-
-  width: 24px;
-  height: 24px;
+  min-width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   transition: color 250ms cubic-bezier(var(--cubic)),
     background-color 250ms cubic-bezier(var(--cubic)),
@@ -64,13 +103,27 @@
     opacity 250ms cubic-bezier(var(--cubic));
 }
 
+@media screen and (min-width: 768px) {
+  .search-form__button {
+    min-width: 24px;
+    height: 24px;
+  }
+}
+
 .search-form__icon {
+  width: 100%;
   display: block;
   color: var(--icon-color);
   transition: color 250ms cubic-bezier(var(--cubic)),
     background-color 250ms cubic-bezier(var(--cubic)),
     box-shadow 250ms cubic-bezier(var(--cubic)),
     opacity 250ms cubic-bezier(var(--cubic));
+}
+  @media screen and (min-width: 768px) {
+    .search-form__icon {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 .js-cross .search-form__icon:hover {

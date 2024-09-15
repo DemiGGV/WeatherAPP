@@ -11,10 +11,16 @@ export default class Slider {
   setConstData(type, data) {
     this.data = data;
     this.type = type;
-    this.deltaOffset = this.type === "one-day" ? -171 : -291;
+
+    this.deltaOffset = -(this.type === "one-day"
+      ? getComputedStyle(document.documentElement).getPropertyValue(
+          "--delta-offset-1"
+        )
+      : getComputedStyle(document.documentElement).getPropertyValue(
+          "--delta-offset-5"
+        ));
     this.startOffset = 0;
     document.documentElement.style.setProperty("--offset", "0");
-    this.endOffset = this.data.length * this.deltaOffset + 880;
     this.currentOffset = getComputedStyle(
       document.documentElement
     ).getPropertyValue("--offset");
@@ -71,6 +77,12 @@ export default class Slider {
     };
 
     const handleRightButtonClick = (currentOffset) => {
+      const endOffset =
+        this.data.length * this.deltaOffset +
+        +getComputedStyle(document.documentElement).getPropertyValue(
+          "--slider-length"
+        );
+
       if (!this.slider.classList.contains("have-left")) {
         this.slider.classList.add("have-left");
         event.currentTarget.querySelector(".left").removeAttribute("disabled");
@@ -79,10 +91,10 @@ export default class Slider {
       const newOffset = +currentOffset + +this.deltaOffset;
 
       // Check boundaries
-      if (+newOffset <= +this.endOffset) {
+      if (+newOffset <= +endOffset) {
         document.documentElement.style.setProperty(
           "--offset",
-          `${this.endOffset.toString()}px`
+          `${endOffset.toString()}px`
         );
 
         this.slider.classList.toggle("have-right");

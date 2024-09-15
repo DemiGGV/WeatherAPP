@@ -1,13 +1,23 @@
 .more-info {
   display: grid;
-  gap: calc(2 * var(--min-step));
+  gap: calc(var(--mobile-padding) / 2);
   grid-template-columns: repeat(3, 1fr);
+}
+@media screen and (min-width: 768px) {
+  .more-info {
+    gap: calc(var(--tablet-padding) / 2);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .more-info {
+    gap: calc(var(--desktop-padding) / 2);
+  }
 }
 
 .card {
-  padding: 16px;
-  width: 158px;
-  height: 196px;
+  width: 98px;
+  height: 148px;
+  padding: calc(var(--tablet-padding) / 2);
 
   border-radius: var(--radius);
 
@@ -17,62 +27,129 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 16px;
+  gap: calc(var(--tablet-padding) / 2);
+}
+@media screen and (min-width: 640px) {
+  .card {
+    width: 128px;
+    height: 148px;
+    gap: var(--tablet-padding);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    width: 158px;
+    height: 196px;
+    padding: 16px;
+    gap: var(--mobile-padding);
+  }
 }
 
 .upper-card,
 .card__information {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 16px;
+  gap: calc(var(--tablet-padding) / 2);
+}
+@media screen and (min-width: 768px) {
+  .upper-card,
+  .card__information {
+    gap: calc(var(--desktop-padding) / 2);
+  }
 }
 
 .card__title {
   font-weight: 700;
-  font-size: 16px;
-  line-height: 1.25;
+  font-size: 12px;
+  line-height: 1.33;
   color: var(--text-black-color);
+}
+@media screen and (min-width: 768px) {
+  .card__title {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card__thumb {
+    width: var(--desktop-padding);
+  }
 }
 
 .card__indicator {
-  font-size: 32px;
+  font-size: 22px;
   line-height: 1;
   color: var(--text-black-color);
 }
+@media screen and (min-width: 768px) {
+  .card__indicator {
+    font-size: 32px;
+  }
+}
+
 .card__value-span {
   display: inline-block;
 }
+
 .card__bottom {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 8px;
+  gap: calc(var(--tablet-padding) / 4);
+}
+@media screen and (min-width: 768px) {
+  .card__bottom {
+    gap: calc(var(--desktop-padding) / 4);
+  }
 }
 
 .card__progress-bar {
   mask: radial-gradient(
-    circle at calc((var(--percent) * 0.94) + 4px),
+    circle at calc((var(--percent) * 0.96) + 3px),
     black 0px,
-    black 4px,
-    transparent 4px,
-    transparent 6px,
-    black 6px,
-    black 6px
+    black 3px,
+    transparent 3px,
+    transparent 5px,
+    black 5px,
+    black 5px
   );
   position: relative;
   width: 100%;
-  height: 8px;
-  border-radius: 4px;
+  height: 6px;
+  border-radius: 3px;
   background-color: var(--progress-background-color);
   overflow: hidden;
 }
+
+@media screen and (min-width: 768px) {
+  .card__progress-bar {
+    mask: radial-gradient(
+      circle at calc((var(--percent) * 0.94) + 4px),
+      black 0px,
+      black 4px,
+      transparent 4px,
+      transparent 6px,
+      black 6px,
+      black 6px
+    );
+    height: 8px;
+    border-radius: 4px;
+  }
+}
+
 .card__progress-bar > .card__progress-bar--inner {
-  left: calc(var(--percent) * 0.94);
+  left: calc(var(--percent) * 0.96);
+}
+@media screen and (min-width: 768px) {
+  .card__progress-bar > .card__progress-bar--inner {
+    left: calc(var(--percent) * 0.94);
+  }
 }
 
 /*------ Progress bars values ------*/
@@ -100,11 +177,17 @@
 
 .card__progress-bar--inner {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: var(--text-light-color);
   transition: left 250ms cubic-bezier(var(--cubic));
+}
+@media screen and (min-width: 768px) {
+  .card__progress-bar--inner {
+    width: 8px;
+    height: 8px;
+  }
 }
 
 .card__bottom--status {

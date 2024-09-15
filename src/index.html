@@ -23,9 +23,21 @@
     <div class="container">
       <header class="header">
         <a href="/" class="logo">
-          <svg width="198" height="48" class="logo__icon">
-            <use href="./images/icons/24/sprite.svg#logo"></use>
-          </svg>
+          <picture>
+            <source
+              srcset="./images/logo/mobile-logo.png"
+              media="(max-width: 768px)"
+            />
+            <source
+              srcset="./images/logo/tablet-logo.png"
+              media="(max-width: 1024px)"
+            />
+            <img
+              src="./images/logo/desktop-logo.png"
+              alt="Фотография"
+              class="logo__icon"
+            />
+          </picture>
         </a>
         <form autocomplete="off" class="js-search-form search-form">
           <input
@@ -46,9 +58,7 @@
               height="18"
               class="search-form__icon icon"
             >
-              <use
-                href="./images/icons/24/sprite.svg#magnifying-glass"
-              ></use>
+              <use href="./images/icons/24/sprite.svg#magnifying-glass"></use>
             </svg>
             <svg
               aria-hidden="true"
@@ -80,7 +90,10 @@
             <h2 class="slider-heading__title">Прогноз:</h2>
             <ul class="slider-heading__menu">
               <li class="slider-heading__menu-item">
-                <button type="button" class="active one-day slider-heading__link">
+                <button
+                  type="button"
+                  class="active one-day slider-heading__link"
+                >
                   на&nbsp;24&nbsp;часа
                 </button>
               </li>
