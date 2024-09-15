@@ -12,6 +12,7 @@ const cardList = new CardList(dataNew);
 const slider = new Slider("one-day", oneDayData, ".js-slider-entry");
 
 // Controlling the slider section
+
 const sliderMain = document.querySelector(".js-slider");
 sliderMain.addEventListener("click", handleSwitchSliders);
 function handleSwitchSliders(event) {
