@@ -25,16 +25,11 @@ export default class Slider {
 
     this.startOffset = 0;
     this.currentPage = 0;
-    setTimeout(() => {
-      this.sliderInnerEl = document.querySelector('.js-slider-inner');
-      this.deltaOffset = +this.sliderInnerEl.clientWidth; //-- visible slider width
-      this.sliderStripEl = document.querySelector('.js-slider-strip');
-      this.sliderStripWidth =
-        +this.sliderStripEl.scrollWidth - this.deltaOffset >= 0
-          ? +this.sliderStripEl.scrollWidth - this.deltaOffset
-          : +this.sliderStripEl.scrollWidth; //-- full slider with
-      this.lastPage = +this.sliderStripEl.scrollWidth <= this.deltaOffset;
-    }, 0);
+    this.sliderInnerEl = document.querySelector('.js-slider-inner');
+    this.deltaOffset = +this.sliderInnerEl.clientWidth; //-- visible slider width
+    this.sliderStripEl = document.querySelector('.js-slider-strip');
+    this.lastPage = +this.sliderStripEl.scrollWidth <= this.deltaOffset;
+    
     document.documentElement.style.setProperty('--offset', '0');
   }
 
@@ -53,6 +48,12 @@ export default class Slider {
   }
 
   handleSliderButtonClick(event) {
+    // get full slider width
+    this.sliderStripWidth =
+      +this.sliderStripEl.scrollWidth - this.deltaOffset >= 0
+        ? +this.sliderStripEl.scrollWidth - this.deltaOffset
+        : +this.sliderStripEl.scrollWidth;
+
     const handleLeftButtonClick = () => {
       if (!this.slider.classList.contains('have-right')) {
         this.slider.classList.add('have-right');
