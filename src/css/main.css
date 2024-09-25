@@ -9,7 +9,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  background-image: url("../assets/images/Desktop/background-main@1x.jpg");
+  background-image: url("../assets/images/desktop/background-main@1x.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -46,7 +46,7 @@ body {
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
   body {
-    background-image: url("../assets/images/Desktop/background-main@2x.jpg");
+    background-image: url("../assets/images/desktop/background-main@2x.jpg");
   }
 }
 @media (min-device-pixel-ratio: 3),
@@ -54,7 +54,7 @@ body {
   (min-resolution: 288dpi),
   (min-resolution: 3dppx) {
   body {
-    background-image: url("../assets/images/Desktop/background-main@3x.jpg");
+    background-image: url("../assets/images/desktop/background-main@3x.jpg");
   }
 }
 
