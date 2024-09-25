@@ -108,6 +108,7 @@
 .city-info__weather {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: var(--min-step);
 }
 

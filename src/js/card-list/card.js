@@ -1,6 +1,6 @@
 export const cardMarkupConstructor = ({
   cardTitle = "",
-  cardThumb = "/src/images/card-images/barometr.png",
+  cardThumb = "/src/assets/images/card-images/barometr.png",
   cardThumbAlt = "Placeholder",
   indicator = "0",
   gaugeName,

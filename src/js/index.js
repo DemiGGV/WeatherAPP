@@ -2,9 +2,9 @@ import SearchFormHandler from "./search-form/search-form.js";
 import CityArticle from "./city-info/city-info.js";
 import CardList from "./card-list/card-list.js";
 import Slider from "./slider/slider.js";
-import { dataNew } from "../data/data.js";
-import { oneDayData } from "../data/data.js";
-import { fiveDayData } from "../data/data.js";
+import { dataNew } from "../assets/data/data.js";
+import { oneDayData } from "../assets/data/data.js";
+import { fiveDayData } from "../assets/data/data.js";
 
 const searchFormHandler = new SearchFormHandler();
 const cityArticle = new CityArticle(dataNew);
@@ -12,7 +12,6 @@ const cardList = new CardList(dataNew);
 const slider = new Slider("one-day", oneDayData, ".js-slider-entry");
 
 // Controlling the slider section
-
 const sliderMain = document.querySelector(".js-slider");
 sliderMain.addEventListener("click", handleSwitchSliders);
 function handleSwitchSliders(event) {

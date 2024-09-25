@@ -1,4 +1,4 @@
-import sprite from '../../images/icons/24/sprite.svg';
+import sprite from '../../assets/images/icons/24/sprite.svg';
 
 export const buttonMarkup = (direction, disabled) => {
   return `

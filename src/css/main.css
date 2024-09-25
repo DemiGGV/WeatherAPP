@@ -9,7 +9,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  background-image: url("../images/desktop/background-main@1x.jpg");
+  background-image: url("../assets/images/Desktop/background-main@1x.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -46,7 +46,7 @@ body {
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
   body {
-    background-image: url("../images/desktop/background-main@2x.jpg");
+    background-image: url("../assets/images/Desktop/background-main@2x.jpg");
   }
 }
 @media (min-device-pixel-ratio: 3),
@@ -54,13 +54,13 @@ body {
   (min-resolution: 288dpi),
   (min-resolution: 3dppx) {
   body {
-    background-image: url("../images/desktop/background-main@3x.jpg");
+    background-image: url("../assets/images/Desktop/background-main@3x.jpg");
   }
 }
 
 .container {
   width: 100%;
-  max-width: var(--mobile-1);
+  max-width: var(--mobile-2);
 
   border-radius: var(--radius);
   backdrop-filter: blur(50px);
@@ -72,25 +72,20 @@ body {
 }
 @media screen and (min-width: 640px) {
   .container {
-    max-width: var(--mobile-2);
+    max-width: var(--tablet-1);
   }
 }
 @media screen and (min-width: 768px) {
   .container {
-    max-width: var(--tablet-1);
+    max-width: var(--tablet-2);
   }
 }
 @media screen and (min-width: 886px) {
   .container {
-    max-width: var(--tablet-2);
-  }
-}
-@media screen and (min-width: 1024px) {
-  .container {
     max-width: var(--desktop-1);
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1024px) {
   .container {
     max-width: var(--desktop-2);
   }
