@@ -12,18 +12,6 @@ export default class Slider {
     this.data = data;
     this.type = type;
 
-    this.deltaOffset = -(this.type === 'one-day'
-      ? getComputedStyle(document.documentElement).getPropertyValue(
-          '--delta-offset-1'
-        )
-      : getComputedStyle(document.documentElement).getPropertyValue(
-          '--delta-offset-5'
-        ));
-    this.startOffset = 0;
-    document.documentElement.style.setProperty('--offset', '0');
-    this.currentOffset = getComputedStyle(
-      document.documentElement
-    ).getPropertyValue('--offset');
     this.slider.classList.add(this.type);
     this.slider.classList.add('have-right');
     this.slider.insertAdjacentHTML(
@@ -34,6 +22,20 @@ export default class Slider {
       ${buttonMarkup('right', false)}
       `
     );
+
+    this.startOffset = 0;
+    this.currentPage = 0;
+    setTimeout(() => {
+      this.sliderInnerEl = document.querySelector('.js-slider-inner');
+      this.deltaOffset = +this.sliderInnerEl.clientWidth; //-- visible slider width
+      this.sliderStripEl = document.querySelector('.js-slider-strip');
+      this.sliderStripWidth =
+        +this.sliderStripEl.scrollWidth - this.deltaOffset >= 0
+          ? +this.sliderStripEl.scrollWidth - this.deltaOffset
+          : +this.sliderStripEl.scrollWidth; //-- full slider with
+      this.lastPage = +this.sliderStripEl.scrollWidth <= this.deltaOffset;
+    }, 0);
+    document.documentElement.style.setProperty('--offset', '0');
   }
 
   initialize() {
@@ -41,12 +43,6 @@ export default class Slider {
       'click',
       this.handleSliderButtonClick.bind(this)
     );
-  }
-
-  currentReset() {
-    this.slider.classList.remove('have-left');
-    document.documentElement.style.setProperty('--offset', '0');
-    this.currentOffset = 0;
   }
 
   reset(type, data) {
@@ -57,73 +53,58 @@ export default class Slider {
   }
 
   handleSliderButtonClick(event) {
-    const handleLeftButtonClick = currentOffset => {
+    const handleLeftButtonClick = () => {
       if (!this.slider.classList.contains('have-right')) {
         this.slider.classList.add('have-right');
         event.currentTarget.querySelector('.right').removeAttribute('disabled');
       }
 
-      const newOffset = +currentOffset - +this.deltaOffset;
+      this.currentPage--;
 
-      // Check boundaries
-      if (+newOffset >= +this.startOffset) {
-        document.documentElement.style.setProperty(
-          '--offset',
-          `${this.startOffset.toString()}px`
-        );
-
+      if (this.currentPage === 0) {
+        document.documentElement.style.setProperty('--offset', '0');
         this.slider.classList.toggle('have-left');
         event.target.closest('.left').setAttribute('disabled', 'disabled');
-        event.currentTarget.querySelector('.right').removeAttribute('disabled');
         return;
       }
 
-      // Set new offset
-      document.documentElement.style.setProperty('--offset', `${newOffset}px`);
+      this.lastPage = +this.sliderStripEl.scrollWidth <= this.deltaOffset;
+      const newOffset = this.deltaOffset * this.currentPage;
+      document.documentElement.style.setProperty('--offset', `-${newOffset}px`);
     };
 
-    const handleRightButtonClick = currentOffset => {
-      const endOffset =
-        this.data.length * this.deltaOffset +
-        +getComputedStyle(document.documentElement).getPropertyValue(
-          '--slider-length'
-        );
-
+    const handleRightButtonClick = () => {
       if (!this.slider.classList.contains('have-left')) {
         this.slider.classList.add('have-left');
         event.currentTarget.querySelector('.left').removeAttribute('disabled');
       }
 
-      const newOffset = +currentOffset + +this.deltaOffset;
-
-      // Check boundaries
-      if (+newOffset <= +endOffset) {
+      this.currentPage++;
+      if (
+        this.currentPage === Math.ceil(this.sliderStripWidth / this.deltaOffset)
+      ) {
+        this.lastPage = true;
         document.documentElement.style.setProperty(
           '--offset',
-          `${endOffset.toString()}px`
+          `-${this.sliderStripWidth}px`
         );
-
         this.slider.classList.toggle('have-right');
         event.target.closest('.right').setAttribute('disabled', 'disabled');
-        event.currentTarget.querySelector('.left').removeAttribute('disabled');
         return;
       }
-      // Set new offset
-      document.documentElement.style.setProperty('--offset', `${newOffset}px`);
+
+      const newOffset = this.deltaOffset * this.currentPage;
+      document.documentElement.style.setProperty('--offset', `-${newOffset}px`);
     };
 
     if (!event.target.closest('.slider__button')) return;
 
-    const currentOffset = parseInt(
-      getComputedStyle(document.documentElement).getPropertyValue('--offset')
-    );
-
     if (event.target.closest('.left')) {
-      handleLeftButtonClick(currentOffset);
+      handleLeftButtonClick();
     }
 
     if (event.target.closest('.right')) {
-      handleRightButtonClick(currentOffset);
+      handleRightButtonClick();
     }
   }
 }

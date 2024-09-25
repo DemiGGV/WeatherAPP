@@ -3,7 +3,7 @@ import sprite from '../../assets/images/icons/24/sprite.svg';
 export const buttonMarkup = (direction, disabled) => {
   return `
   <button type="button" ${
-    disabled ? "disabled" : ""
+    disabled ? 'disabled' : ''
   } aria-label="Кнопка - перемещение слайдера ${direction}" class="${direction} slider__button">
       <svg
       aria-hidden="true"

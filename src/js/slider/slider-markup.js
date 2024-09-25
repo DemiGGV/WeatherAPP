@@ -1,7 +1,9 @@
-export const sliderMarkup = (data) => {
-    return `
+export const sliderMarkup = data => {
+  return `
     <div class="slider">
-     <ul class="slider__strip"> ${data.map(({datetime, imageSrc, temperature})=>`
+     <ul class="slider__strip"> ${data
+       .map(
+         ({ datetime, imageSrc, temperature }) => `
       <li class="slider__item">
                     <time datetime="${datetime}" class="slider__date-time">${datetime}</time>
                     <img
@@ -13,8 +15,10 @@ export const sliderMarkup = (data) => {
                     />
                     <p class="slider__temperature">${temperature}</p>
                  </li>
-        `).join('')}
+        `
+       )
+       .join('')}
       </ul>
     </div>
-    `
-}
+    `;
+};
