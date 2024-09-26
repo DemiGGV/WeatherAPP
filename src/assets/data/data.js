@@ -9,7 +9,7 @@ import dayBrokenClouds from '../images/weather-thumbs/day-broken-clouds.png';
 export const dataNew = {
   date: "суббота, 06 января",
   time: "11:29",
-  cityName: "москва",
+  cityName: "Mapc",
   temperature: "-7°",
   cloudiness: "облачно",
   cloudThumb: dayBrokenClouds,
