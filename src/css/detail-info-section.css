@@ -35,10 +35,11 @@
   gap: calc(var(--tablet-padding) / 2);
   transition: background-color 250ms cubic-bezier(var(--cubic));
 }
-.card:hover {
-  background-color: var(--input-background-active-color);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    background-color: var(--input-background-active-color);
+  }
 }
-
 @media screen and (min-width: 640px) {
   .card {
     width: 128px;
