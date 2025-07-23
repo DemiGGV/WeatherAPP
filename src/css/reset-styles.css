@@ -12,7 +12,9 @@ h6,
 p,
 time {
   margin: 0;
+  cursor: default;
 }
+
 
 ul {
   list-style: none;

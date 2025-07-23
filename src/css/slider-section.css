@@ -279,6 +279,10 @@
   background-color: var(--input-background-color);
 
   gap: calc(var(--tablet-padding) / 2);
+  transition: background-color 250ms cubic-bezier(var(--cubic));
+}
+.slider__item:hover {
+  background-color: var(--input-background-active-color);
 }
 @media screen and (min-width: 640px) {
   .slider__item {

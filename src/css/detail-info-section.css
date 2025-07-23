@@ -33,7 +33,12 @@
   justify-content: flex-start;
   flex-direction: column;
   gap: calc(var(--tablet-padding) / 2);
+  transition: background-color 250ms cubic-bezier(var(--cubic));
 }
+.card:hover {
+  background-color: var(--input-background-active-color);
+}
+
 @media screen and (min-width: 640px) {
   .card {
     width: 128px;
@@ -130,8 +135,11 @@
   border-radius: 3px;
   background-color: var(--progress-background-color);
   overflow: hidden;
+  transition: background-color 250ms cubic-bezier(var(--cubic));
 }
-
+.card:hover .card__progress-bar{
+  background-color: var(--progress-background-center-color);
+}
 @media screen and (min-width: 768px) {
   .card__progress-bar {
     mask: radial-gradient(
@@ -169,7 +177,7 @@
 }
 /*------ Progress bars values off ------*/
 
-.pressure {
+/* .pressure {
   background: linear-gradient(
     to right,
     var(--progress-background-full-color) 0%,
@@ -178,7 +186,7 @@
     var(--progress-background-center-color) 85%,
     var(--progress-background-full-color) 100%
   );
-}
+} */
 
 .card__progress-bar--inner {
   position: absolute;
@@ -187,6 +195,10 @@
   border-radius: 50%;
   background-color: var(--text-light-color);
   transition: left 250ms cubic-bezier(var(--cubic));
+  transition: background-color 250ms cubic-bezier(var(--cubic));
+}
+.card:hover .card__progress-bar--inner {
+  background-color: var(--text-dark-color);
 }
 @media screen and (min-width: 768px) {
   .card__progress-bar--inner {
