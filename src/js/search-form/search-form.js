@@ -1,11 +1,12 @@
 export default class SearchFormHandler {
-  constructor() {
+  constructor(handleInput) {
     this.refs = {
       form: document.querySelector(".js-search-form"),
       input: document.querySelector(".js-search-input"),
       button: document.querySelector(".js-search-btn"),
       icons: document.querySelectorAll(".js-search-btn > svg"),
     };
+    this.handleInput = handleInput;
     this.initialize();
   }
 
@@ -59,9 +60,9 @@ export default class SearchFormHandler {
   }
 
   //dynamic entry search query
-  handleInput(event) {
-    console.log(event.currentTarget.value);
-  }
+  // handleInput(event) {
+  //   console.log(event.currentTarget.value);
+  // }
 
   //submit entered search query
   handleSubmit(event) {
@@ -71,6 +72,12 @@ export default class SearchFormHandler {
 
     //reset form
     event.currentTarget.input.value = "";
+    this.refs.input.blur();
+  }
+
+  reset() {
+    this.refs.input.value = '';
+    this.setMagGlassIcon();
     this.refs.input.blur();
   }
 }
