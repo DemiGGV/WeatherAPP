@@ -7,17 +7,17 @@ import nordWest from '../images/card-images/nord-west.png';
 import dayBrokenClouds from '../images/weather-thumbs/day-broken-clouds.png';
 
 export const dataNew = {
-  date: "суббота, 06 января",
+  date: "Sat, 06 January",
   time: "11:29",
   cityName: "Mapc",
   temperature: "-7°",
-  cloudiness: "облачно",
+  cloudiness: "overcast",
   cloudThumb: dayBrokenClouds,
   fillLike: "-11°",
   humidityData: {
-    cardTitle: "Влажность",
+    cardTitle: "Humidity",
     cardThumb: humidity,
-    cardThumbAlt: "Ssunrise picture",
+    cardThumbAlt: "Sunrise picture",
     indicator: "75%",
     gaugePercent: "75%",
     bottomStatus: {
@@ -25,41 +25,41 @@ export const dataNew = {
     },
   },
   pressureData: {
-    cardTitle: "Давление",
+    cardTitle: "Pressure",
     cardThumb: barometr,
     cardThumbAlt: "Pressure picture",
     indicator: "750",
     gaugePercent: "50%",
-    bottomStatus: "Повышенное",
+    bottomStatus: "Elevated",
   },
   visibilityData: {
-    cardTitle: "Видимость",
+    cardTitle: "Visibility",
     cardThumb: visibility,
     cardThumbAlt: "Visibility picture",
-    indicator: "28 км.",
+    indicator: "28 km.",
     gaugePercent: "28%",
-    bottomStatus: "Нормальная",
+    bottomStatus: "Normal",
   },
   sunriseData: {
-    cardTitle: "Рассвет",
+    cardTitle: "Sunrise",
     cardThumb: sunrise,
     cardThumbAlt: "Sunrise picture",
     indicator: "5:42",
     bottomStatus: "after",
   },
   sunsetData: {
-    cardTitle: "Закат",
+    cardTitle: "Sunset",
     cardThumb: sunset,
     cardThumbAlt: "Sunset picture",
     indicator: "20:37",
     bottomStatus: "before",
   },
   windData: {
-    cardTitle: "Сила ветра",
+    cardTitle: "Wind Speed",
     cardThumb: nordWest,
     cardThumbAlt: "Wind direction picture",
-    indicator: "2 м/с",
-    bottomStatus: "Северо-западный",
+    indicator: "2 m/s",
+    bottomStatus: "Northwest",
   },
 };
 
@@ -108,27 +108,27 @@ export const oneDayData = [
 
 export const fiveDayData = [
   {
-    datetime: "Вс, 07 янв.",
+    datetime: "Sun, 07 January",
     imageSrc: dayBrokenClouds,
     temperature: "от -17° до -11°",
   },
   {
-    datetime: "Пн, 08 янв.",
+    datetime: "Mon, 08 January",
     imageSrc: dayBrokenClouds,
     temperature: "от -16° до -8°",
   },
   {
-    datetime: "Вт, 09 янв.",
+    datetime: "Tue, 09 January",
     imageSrc: dayBrokenClouds,
     temperature: "от -8° до -2°",
   },
   {
-    datetime: "Ср, 10 янв.",
+    datetime: "Wed, 10 January",
     imageSrc: dayBrokenClouds,
     temperature: "от -17° до -11°",
   },
   {
-    datetime: "Чт, 11 янв.",
+    datetime: "Thu, 11 January",
     imageSrc: dayBrokenClouds,
     temperature: "от -16° до -8°",
   },

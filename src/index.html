@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,7 +15,7 @@
     <title>WeatherApp</title>
     <meta
       name="description"
-      content="Простое и удобное веб-приложение для получения точной погоды в любом городе. Введите название города и узнайте текущую температуру, прогноз на ближайшие дни, а также другие погодные условия. Быстрый поиск, актуальная информация и красивый интерфейс."
+      content="A simple and convenient web application for getting accurate weather information in any city. Enter the city name and find out the current temperature, forecast for the coming days, and other weather conditions. Quick search, up-to-date information, and a beautiful interface."
     />
   </head>
 
@@ -34,7 +34,7 @@
             />
             <img
               src="./assets/images/logo/desktop-logo.png"
-              alt="Фотография"
+              alt="Logo of the Weather App"
               class="logo__icon"
             />
           </picture>
@@ -42,15 +42,15 @@
         <form autocomplete="off" class="js-search-form search-form">
           <input
             type="text"
-            aria-label="Ввести название города для поиска"
+            aria-label="Enter city name to search"
             name="input"
-            placeholder="Поиск по городу"
+            placeholder="Search by city"
             class="js-search-input search-form__input"
           />
           <ul class="js-suggestions search-form__list"></ul>
           <button
             type="button"
-            aria-label="Кнопка - поиск по названию города"
+            aria-label="Button - search by city name"
             class="js-search-btn search-form__button"
           >
             <svg
@@ -88,19 +88,19 @@
         </section>
         <section class="js-slider slider-section">
           <div class="slider-heading">
-            <h2 class="slider-heading__title">Прогноз:</h2>
+            <h2 class="slider-heading__title">Forecast:</h2>
             <ul class="slider-heading__menu">
               <li class="slider-heading__menu-item">
                 <button
                   type="button"
                   class="active one-day slider-heading__link"
                 >
-                  на&nbsp;24&nbsp;часа
+                  for&nbsp;24&nbsp;hours
                 </button>
               </li>
               <li class="slider-heading__menu-item">
                 <button type="button" class="five-day slider-heading__link">
-                  на&nbsp;5&nbsp;дней
+                  for&nbsp;5&nbsp;days
                 </button>
               </li>
             </ul>

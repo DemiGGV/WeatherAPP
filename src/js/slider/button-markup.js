@@ -4,7 +4,7 @@ export const buttonMarkup = (direction, disabled) => {
   return `
   <button type="button" ${
     disabled ? 'disabled' : ''
-  } aria-label="Кнопка - перемещение слайдера ${direction}" class="${direction} slider__button">
+  } aria-label="Button - slide ${direction}" class="${direction} slider__button">
       <svg
       aria-hidden="true"
       width="18"

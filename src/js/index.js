@@ -22,7 +22,7 @@ async function handleInput(event) {
   const query = event.currentTarget.value;
 
   if (query.length < 3) {
-    listContainer.innerHTML = ''; // Clear suggestions if query is too short
+    listContainer.innerHTML = '';
     return;
   }
 
@@ -38,8 +38,9 @@ async function handleInput(event) {
 function handleSelect(city) {
   console.log("Selected city:", city);
   searchReset();
-  // cityArticle.render(city);
-  // cardList.render(city);
+  cityArticle.render(city);
+  cardList.render(city);
+  slider.render(city);
 }
 
 // Controlling the slider section

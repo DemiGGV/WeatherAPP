@@ -19,7 +19,7 @@ export const cardMarkupConstructor = ({
     const sunrise = indicator.split(":").map(Number);
     sunriseAfter.setHours(currentTime.getHours() - sunrise[0]);
     sunriseAfter.setMinutes(currentTime.getMinutes() - sunrise[1]);
-    bottomStatus = `Прошло: ${formatTime(sunriseAfter)}`;
+    bottomStatus = `Passed: ${formatTime(sunriseAfter)}`;
   }
 
   if (bottomStatus === "before") {
@@ -27,7 +27,7 @@ export const cardMarkupConstructor = ({
     let sunset = indicator.split(":").map(Number);
     sunsetBefore.setHours(sunset[0] - currentTime.getHours());
     sunsetBefore.setMinutes(sunset[1] - currentTime.getMinutes());
-    bottomStatus = `Осталось: ${formatTime(sunsetBefore)}`;
+    bottomStatus = `Left: ${formatTime(sunsetBefore)}`;
   }
 
   return `

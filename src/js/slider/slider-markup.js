@@ -3,7 +3,7 @@ export const sliderMarkup = (data) => {
     <div class="js-slider-inner slider">
      <ul class="js-slider-strip slider__strip"> ${data
        .map(
-         ({ datetime, imageSrc, temperature }) => `
+         ({ datetime="---", imageSrc="dayBrokenClouds", temperature="---" }) => `
       <li class="slider__item">
                     <time datetime="${datetime}" class="slider__date-time">${datetime}</time>
                     <img
